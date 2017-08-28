@@ -1,0 +1,13 @@
+controller_list:
+  - name: ''
+    action_ns: joint_trajectory_action
+    type: FollowJointTrajectory
+    joints: [arm_joint_s,arm_joint_l,arm_joint_u,arm_joint_r,arm_joint_b,arm_joint_t,base_joint_b1,station_joint_s1]
+  - name: mh6/mh6_r1_controller
+    action_ns: joint_trajectory_action
+    type: FollowJointTrajectory
+    joints: [arm_joint_s,arm_joint_l,arm_joint_u,arm_joint_r,arm_joint_b,arm_joint_t]
+  - name: mh6/mh6_s1_controller
+    action_ns: joint_trajectory_action
+    type: FollowJointTrajectory
+    joints: [base_joint_b1,station_joint_s1]

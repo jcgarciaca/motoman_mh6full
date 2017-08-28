@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find motoman_mh6full_support)/urdf/base_macro.xacro" />
+	<xacro:include filename="$(find motoman_mh6full_support)/urdf/arm_macro.xacro" />
+	<xacro:include filename="$(find motoman_mh6full_support)/urdf/station_macro.xacro" />
+
+
+	<!-- create macro of work cell -->
+	<xacro:macro name="motoman_mh6full" params="prefix">
+
+		<!-- root of cell -->
+		<xacro:motoman_base prefix="base_"/>
+
+		<!-- robot and station -->
+		<xacro:motoman_arm prefix="arm_" />
+		<xacro:motoman_station prefix="station_" />
+
+		<!-- connect arm to base -->
+		<joint name="${prefix}base_link_b1-arm" type="fixed">
+			<parent link="${prefix}base_link_b1" />
+			<child link="${prefix}arm_base_link" />
+			<origin xyz="0 0 0.711" rpy="0 0 0"/>
+		</joint>
+
+		<!-- connect station to base (really the rail) -->
+		<joint name="${prefix}base_rail-station" type="fixed">
+			<parent link="${prefix}base_rail_link" />
+			<child link="${prefix}station_station_link" />
+			<origin xyz="-1.1308 0.9886 0.1006" rpy="0 0 -1.5708"/>
+		</joint>
+	</xacro:macro>
+</robot>

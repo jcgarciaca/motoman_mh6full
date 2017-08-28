@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="motoman_station" params="prefix">
+		<!-- link list -->
+		<link name="${prefix}station_link">
+			<visual>
+				<geometry>
+					<mesh filename="package://motoman_mh6full_support/meshes/mh6full/visual/positioner_base.stl" />
+				</geometry>
+				<material name="blue">
+					<color rgba="0 0 1 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<mesh filename="package://motoman_mh6full_support/meshes/mh6full/collision/positioner_base.stl" />
+				</geometry>
+				<material name="yellow">
+					<color rgba="0 1 1 1"/>
+				</material>
+			</collision>
+		</link>
+		<link name="${prefix}link_s1">
+			<visual>
+				<origin rpy="0 0 0" xyz="0 0 0"/>
+				<geometry>
+					<mesh filename="package://motoman_mh6full_support/meshes/mh6full/visual/motoman_axis_s1.stl"/>
+				</geometry>
+				<material name="silver">
+					<color rgba="0.8 0.8 0.8 1"/>
+				</material>
+			</visual>
+			<collision>
+				<origin rpy="0 0 0" xyz="0 0 0"/>
+				<geometry>
+					<mesh filename="package://motoman_mh6full_support/meshes/mh6full/collision/motoman_axis_s1.stl"/>
+				</geometry>
+				<material name="yellow"/>
+			</collision>
+		</link>
+
+		<link name="${prefix}link_s1_tool0" />
+
+		<!-- joint list -->
+		<joint name="${prefix}joint_s1" type="revolute">
+			<parent link="${prefix}station_link"/>
+			<child link="${prefix}link_s1"/>
+			<origin xyz="0 0.3755 0.906" rpy="0 0 1.5708"/>
+			<axis xyz="1 0 0" />
+			<limit lower="-6.28" upper="6.28" effort="50" velocity="10.2" />
+		</joint>
+
+		<joint name="${prefix}joint_s1_tool0" type="fixed" >
+			<origin xyz="0.7 0 0" rpy="0 0 0"/>
+			<parent link="${prefix}link_s1" />
+			<child link="${prefix}link_s1_tool0" />
+		</joint>
+		<!-- end of joint list -->
+	</xacro:macro>
+</robot>

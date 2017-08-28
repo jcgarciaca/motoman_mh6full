@@ -1,0 +1,9 @@
+topic_list:
+    - name: mh6_r1_controller
+      ns: mh6
+      group: 0
+      joints: ['arm_joint_s','arm_joint_l','arm_joint_u','arm_joint_r','arm_joint_b','arm_joint_t']
+    - name: mh6_s1_controller
+      ns: mh6
+      group: 1
+      joints: ['base_joint_b1','station_joint_s1']

@@ -1,0 +1,22 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - arm_joint_s
+      - arm_joint_l
+      - arm_joint_u
+      - arm_joint_r
+      - arm_joint_b
+      - arm_joint_t
+  - name: fake_arm_on_rail_controller
+    joints:
+      - base_joint_b1
+      - arm_joint_s
+      - arm_joint_l
+      - arm_joint_u
+      - arm_joint_r
+      - arm_joint_b
+      - arm_joint_t
+  - name: fake_station_controller
+    joints:
+      - base_joint_b1
+      - station_joint_s1

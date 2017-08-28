@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: motoman_mh6full_support
+    relative_path: urdf/mh6full.urdf
+  SRDF:
+    relative_path: config/motoman_mh6full.srdf
+  CONFIG:
+    generated_timestamp: 1448656622
